@@ -7,6 +7,41 @@
   display: flex;
   flex-direction: column;
   height: 700px;
+  position: relative;
   width: 450px;
 }
 
+.searchField {
+  align-items: center;
+  bottom: 115px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 45%;
+}
+
+.searchField__input {
+  background-color: darkcyan;
+  border: 2px solid black;
+  border-radius: 18px;
+  color: black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.searchField__button {
+  border: 2px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  padding: 1px 3px;
+  width: 34px;
+}
+
+.pokemonInformationContainer {
+  top: 250px;
+  display: flex;
+  height: 75px;
+  position: absolute;
+  width: 150px;
+}
