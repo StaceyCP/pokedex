@@ -1,15 +1,28 @@
+@font-face {
+  font-family: digitalFont;
+  src: url("/public/fonts/public-pixel-font/PublicPixel-z84yD.ttf");
+}
+
+body {
+  background-image: url("/public/images/inspiration-geometry.png");
+  font-family: 'digitalFont', sans-serif;
+}
+
 .App {
   align-items: center;
-  background-image: url("./pokedexImg/pokedexConsole.png");
+  background-image: url("/public/images/pokedexConsole.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
   flex-direction: column;
   height: 700px;
+  margin: auto;
   position: relative;
   width: 450px;
 }
+
+/* Search form */
 
 .searchField {
   align-items: center;
@@ -21,12 +34,25 @@
 }
 
 .searchField__input {
-  background-color: darkcyan;
+  background-color: white;
   border: 2px solid black;
   border-radius: 18px;
   color: black;
+  font-family: 'digitalFont', sans-serif;
+  font-size: 12px;
   margin: 5px;
   padding: 5px;
+  width: 90%;
+}
+
+.searchField__input::placeholder {
+  color: rgb(96, 96, 96);
+  font-family: 'digitalFont';
+  font-size: 10px;
+}
+
+input:focus {
+  outline: none;
 }
 
 .searchField__button {
@@ -38,10 +64,59 @@
   width: 34px;
 }
 
+/* Pokemon data */
+
 .pokemonInformationContainer {
-  top: 250px;
+  top: 245px;
   display: flex;
-  height: 75px;
+  height: 175px;
   position: absolute;
-  width: 150px;
+  width: 300px;
 }
+
+.pokemonInformationContainer__data {
+  margin-left: -15px;
+  margin-top: 17px;
+  margin-right: 15px;
+}
+
+.pokemonType {
+  height: 25px;
+  margin: 3px;
+  width: 55px;
+}
+
+.pokemonSprite {
+  margin-left: -10px;
+  animation: spriteBounce 1s ease 1;
+}
+
+@keyframes spriteBounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-20px);}
+	60% {transform: translateY(-15px);}
+}
+
+/* Error message */
+
+.errorContainer {
+  align-items: center;
+  top: 245px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 175px;
+  position: absolute;
+  width: 300px;
+}
+
+.errorImage {
+  height: 75px;
+  margin: 5px;
+  width: 75px;
+}
+
+.errorText {
+  font-size: 15px;
+}
+
