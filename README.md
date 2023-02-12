@@ -1,5 +1,9 @@
 # Pokedex
 
+This [pokedex](https://lustrous-quokka-db794f.netlify.app/) is a personal project where I used the [pokeAPI](https://pokeapi.co/api/v2/pokemon) to fetch pokemon data and present it in a simple react app. 
+
+Being a bit of a pokemon nerd I wanted to go one step further with this project and so I recreated an old school pokedex to present the data in a more visually appealing way.
+
 ![Alt text](/public/images/completedApp.png "Optional title")
 
 ## Available Scripts
