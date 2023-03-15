@@ -6,13 +6,13 @@ function PokemonDisplay({errorResponse, pokemon}) {
             <div className="pokemonInformationContainer">
                 {pokemon && 
                 <>
-                    <img src={pokemon.sprites.front_default} alt={`${pokemon.name} sprite`} className="pokemonSprite"></img>
+                    <img src={pokemon.spriteURL} alt={`${pokemon.name} sprite`} className="pokemonSprite"></img>
                     <div className="pokemonInformationContainer__data">
                     <p>No. {pokemon.id}</p>
                     <p>{capitaliseFirstLetter(pokemon.name)}</p> 
-                    <div>{pokemon.types.map(type => {
+                    <div>{pokemon.type.map(type => {
                         return (
-                        <img src={`images/${type.type.name}.png`} alt={`${type.type.name}`} className="pokemonType"></img>
+                        <img src={`images/${type}.png`} alt={`${type}`} className="pokemonType"></img>
                         )}
                     )}</div>    
                     </div>

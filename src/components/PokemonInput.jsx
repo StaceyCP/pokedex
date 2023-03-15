@@ -6,7 +6,7 @@ function PokemonInput({setPokemon, setErrorResponse}) {
     const [searchValue, setSearchValue] = useState('');
     
     const fetchPokemon = async () => {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`);
+        const response = await fetch(`https://pokemon-api-eb4q.onrender.com/api/pokemon/${searchValue}`);
         if (response.status === 404) {
             setErrorResponse("Pokemon not found")
             setPokemon("")
