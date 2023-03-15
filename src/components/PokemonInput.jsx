@@ -2,22 +2,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '@mui/material/Tooltip';
 import { useState } from 'react';
 
-function PokemonInput({setPokemon, setErrorResponse}) {
+function PokemonInput({setPokemon, setErrorResponse, setIsLoading}) {
     const [searchValue, setSearchValue] = useState('');
     
     const fetchPokemon = async () => {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchValue}`);
-        if (response.status === 404) {
-            setErrorResponse("Pokemon not found")
-            setPokemon("")
-        } else if (!response.ok) {
+        const response = await fetch(`https://pokemon-api-eb4q.onrender.com/api/pokemon/${searchValue}`);
+        if (!response.ok) {
             setErrorResponse("Something went wrong. Please try again")
             setPokemon("")
         }
         const data = await response.json();
-    
-        setPokemon(data);
-        setErrorResponse("");
+        if (data.message) {
+            setErrorResponse(`${data.message}`)
+            setPokemon("")
+        } else {
+            setIsLoading(false);
+            setPokemon(data.pokemon);
+            setErrorResponse("");
+        }
     }
     const handleInput = (e) => {
             setSearchValue(e.target.value.toLowerCase());
@@ -25,6 +27,7 @@ function PokemonInput({setPokemon, setErrorResponse}) {
     
     const buttonClick = (e) => {
             e.preventDefault();
+            setIsLoading(true)
             fetchPokemon();
         }
     return (
