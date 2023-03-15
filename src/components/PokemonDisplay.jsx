@@ -1,12 +1,14 @@
-function PokemonDisplay({errorResponse, pokemon}) {
-    const capitaliseFirstLetter = string => string[0].toUpperCase() + string.slice(1);
+import Loading from "./Loading";
 
+function PokemonDisplay({errorResponse, pokemon, isLoading}) {
+    const capitaliseFirstLetter = string => string[0].toUpperCase() + string.slice(1);
     return (
         <>
             <div className="pokemonInformationContainer">
-                {pokemon && 
+                {isLoading && <Loading/>}
+                {pokemon && !isLoading && 
                 <>
-                    <img src={pokemon.spriteURL} alt={`${pokemon.name} sprite`} className="pokemonSprite"></img>
+                    <img src={pokemon.spriteurl} alt={`${pokemon.name} sprite`} className="pokemonSprite"></img>
                     <div className="pokemonInformationContainer__data">
                     <p>No. {pokemon.id}</p>
                     <p>{capitaliseFirstLetter(pokemon.name)}</p> 
